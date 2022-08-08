@@ -13,13 +13,13 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const genre = await Genre.findById(req.body.genreId);
-  let movie = new Movie({
+  const movie = new Movie({
     title: req.body.title,
     genre: genre,
     numberInStock: req.body.numberInStock,
     dailyRentalRate: req.body.dailyRentalRate,
   });
-  movie = await movie.save();
+  await movie.save();
   res.send(movie);
 });
 router.put("/:id", async (req, res) => {

@@ -1,3 +1,5 @@
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
 const express = require("express");
 const mongoose = require("mongoose");
 const startupDebugger = require("debug")("app:startup");
@@ -6,7 +8,8 @@ const genresRouter = require("./routes/genres");
 const customersRouter = require("./routes/customers");
 const homeRouter = require("./routes/home");
 const moviesRouter = require("./routes/movies");
-const rentalsRouter = requite("./routes/rentals");
+const rentalsRouter = require("./routes/rentals");
+const usersRouter = require("./routes/users");
 
 // console.log("name=" + config.get("name"));
 // console.log("id :", config.get("mail.id"));
@@ -32,6 +35,7 @@ app.use("/api/genres", genresRouter);
 app.use("/api/customer", customersRouter);
 app.use("/api/movies", moviesRouter);
 app.use("/api/rentals", rentalsRouter);
+app.use("/api/users", usersRouter);
 app.use("/", homeRouter);
 
 const port = process.env.PORT || 3000;
