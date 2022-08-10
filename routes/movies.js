@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleWare/auth");
 const Movie = require("../models/moive");
 const { Genre } = require("../models/genre");
 
@@ -11,7 +12,7 @@ router.get("/", async (req, res) => {
   res.send(await Movie.find());
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const genre = await Genre.findById(req.body.genreId);
   const movie = new Movie({
     title: req.body.title,
