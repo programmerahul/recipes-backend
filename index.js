@@ -1,4 +1,5 @@
 require("express-async-errors");
+const winston = require("winston");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const express = require("express");
@@ -15,6 +16,7 @@ const authRouter = require("./routes/auth");
 const config = require("config");
 const error = require("./middleWare/error");
 
+winston.add(new winston.transports.File({ filename: "logfile.log" }));
 // console.log("name=" + config.get("name"));
 // console.log("id :", config.get("mail.id"));
 // console.log("password : ", config.get("password"));
