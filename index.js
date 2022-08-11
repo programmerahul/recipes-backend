@@ -1,3 +1,4 @@
+require("express-async-errors");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
 const express = require("express");
@@ -12,6 +13,7 @@ const rentalsRouter = require("./routes/rentals");
 const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const config = require("config");
+const error = require("./middleWare/error");
 
 // console.log("name=" + config.get("name"));
 // console.log("id :", config.get("mail.id"));
@@ -44,6 +46,8 @@ app.use("/api/rentals", rentalsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/auth", authRouter);
 app.use("/", homeRouter);
+
+app.use(error);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

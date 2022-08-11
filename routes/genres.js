@@ -1,7 +1,7 @@
 const express = require("express");
 const auth = require("../middleWare/auth");
+const admin = require("../middleWare/admin");
 const { Genre, validateGenre } = require("../models/genre");
-
 const router = express.Router();
 
 router.get("/:_id", async (req, res) => {
@@ -12,7 +12,7 @@ router.get("/:_id", async (req, res) => {
   res.send(genre);
 });
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   const genres = await Genre.find().sort("name");
   res.send(genres);
 });
@@ -45,7 +45,7 @@ router.put("/:_id", async (req, res) => {
   res.send(result);
 });
 
-router.delete("/:_id", async (req, res) => {
+router.delete("/:_id", [auth, admin], async (req, res) => {
   try {
     const genre = await Genre.findByIdAndDelete(req.params._id);
     if (!genre) res.status(404).send("Genre with given id was not found");
