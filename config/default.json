@@ -1,4 +1,4 @@
 {
-  "name": "my exp app",
-  "jwtPrivateKey": ""
+  "jwtPrivateKey": "",
+  "db": ""
 }
