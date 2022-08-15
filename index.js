@@ -2,7 +2,7 @@ const express = require("express");
 const startupDebugger = require("debug")("app:startup");
 const dbDebugger = require("debug")("app:db");
 const winston = require("winston");
-
+const cors = require("cors");
 const app = express();
 app.use(cors());
 require("./startups/validate")();
