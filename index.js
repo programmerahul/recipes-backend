@@ -4,6 +4,7 @@ const dbDebugger = require("debug")("app:db");
 const winston = require("winston");
 
 const app = express();
+app.use(cors());
 require("./startups/validate")();
 require("./startups/logging")();
 require("./startups/routes")(app);
