@@ -1,6 +1,4 @@
 const express = require("express");
-const startupDebugger = require("debug")("app:startup");
-const dbDebugger = require("debug")("app:db");
 const winston = require("winston");
 const cors = require("cors");
 const app = express();
@@ -12,10 +10,7 @@ require("./startups/database")();
 require("./startups/config")();
 require("./startups/prod")(app);
 
-startupDebugger("started debugger...");
-dbDebugger("started db...");
-
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2000;
 app.listen(port, () => {
   winston.info(`listening on port ${port}...`);
 });
