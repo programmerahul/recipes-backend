@@ -3,7 +3,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("index", {
     title: "Movies backend",
-    message: "/api/genres|customer|movies|rentals|users|auth",
+    message: "/api/users|auth|recipes",
   });
 });
 module.exports = router;
