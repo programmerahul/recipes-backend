@@ -14,11 +14,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  isAdmin: Boolean,
 });
 userSchema.methods.getToken = function () {
   return jwt.sign(
-    { _id: this._id, isAdmin: this.isAdminm, name: this.name },
+    { _id: this._id, name: this.name },
     config.get("jwtPrivateKey")
   );
 };
