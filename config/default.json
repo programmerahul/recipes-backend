@@ -1,4 +1,4 @@
 {
   "jwtPrivateKey": "private",
-  "db": "mongodb://localhost:27017"
+  "db": "mongodb+srv://rahul:rahulcluster@cluster0.3pv8z.mongodb.net/?retryWrites=true"
 }
