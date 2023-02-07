@@ -1,4 +1,4 @@
 {
   "jwtPrivateKey": "task_jwtPrivateKey",
-  "db": "db"
+  "db": "mongodb+srv://rahul:rahulcluster@recipies.k0p57c6.mongodb.net/?retryWrites=true&w=majority"
 }
