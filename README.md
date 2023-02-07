@@ -1,2 +1,1 @@
-1. set task_jwtPrivateKey
-2. hosted at:https://deliciousrecipe.herokuapp.com/
+1. hosted at:https://recipesbackend-odby.onrender.com
